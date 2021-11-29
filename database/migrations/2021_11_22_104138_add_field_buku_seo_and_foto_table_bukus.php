@@ -13,10 +13,10 @@ class AddFieldBukuSeoAndFotoTableBukus extends Migration
      */
     public function up()
     {
-        Schema::table('buku', function (Blueprint $table) {
-            $table->string('buku_seo');
-            $table->string('foto');
-        });
+        // Schema::table('buku', function (Blueprint $table) {
+        //     $table->string('buku_seo');
+        //     $table->string('foto');
+        // });
     }
 
     /**
