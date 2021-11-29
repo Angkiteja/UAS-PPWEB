@@ -13,9 +13,9 @@ class AddFieldLevelUser extends Migration
      */
     public function up()
     {
-        Schema::table('users', function(Blueprint $table){
-            $table->string('level');
-        });
+        // Schema::table('users', function(Blueprint $table){
+        //     $table->string('level');
+        // });
     }
 
     /**

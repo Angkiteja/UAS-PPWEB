@@ -26,7 +26,7 @@ class GaleriController extends Controller
     {
         $galeri = Buku::all()->sortByDesc('id');
         $batas = 4;
-        $galeri = Galeri::orderBy('id','desc')->paginate($batas);
+        $galeri = Galeri::paginate($batas);
 
         $no = $batas * ($galeri -> currentpage() - 1);
         return view('galeri.view', compact('galeri', 'no'));
