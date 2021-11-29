@@ -18,7 +18,7 @@
                     <div class="card-body">
                         <img class="card-img-top" src="{{ asset('thumb/'.$buku->foto) }}" style="width:100px; height:150px">{{ $buku->isi_galeri }}
                         <hr>
-                        <a href="{{ route('galeri.buku', $buku->bukus->buku_seo)  }}">{{ $buku->bukus->judul }} </a>
+                        <a href="{{ route('galeri.buku', $buku->buku_seo)  }}">{{ $buku->judul }} </a>
                         <hr>
                         <a href="{{ route('likefoto', $buku->id) }}" class="btn btn-primary btn-sm">
                             <i class="fa fa-thumbs-up"></i>like

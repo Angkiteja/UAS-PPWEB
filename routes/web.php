@@ -14,10 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes([
-    'register' => false,
-    'reset' => false,
-]);
+Auth::routes();
 
 Route::get('/', function () {       //apa yg ada di url kita ambil
     return view('welcome'); 

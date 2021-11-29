@@ -63,6 +63,15 @@ class BukuController extends Controller
         $buku->penulis = $request->penulis;
         $buku->harga = $request->harga;
         $buku->tgl_terbit = $request->tgl_terbit;
+        
+        $foto = $request->foto;
+        $namaFile = time().'.'.$foto->getClientOriginalExtension();
+
+        Image::make($foto)->resize(200,150)->save('thumb/'.$namaFile);
+        $foto->move('images/', $namaFile);
+
+        $buku->foto = $namaFile;
+
         $buku->buku_seo = Str::slug($request->judul, '-');
         $buku->save();
     
@@ -97,7 +106,7 @@ class BukuController extends Controller
 
     public function list_buku(){
         $batas = 6;
-        $data_buku = Galeri::orderBy('id', 'desc')->paginate($batas);
+        $data_buku = Buku::orderBy('id', 'desc')->paginate($batas);
         $no = $batas * ($data_buku -> currentpage() - 1);
         return view('galeri.list_buku', compact('data_buku', 'no'));
 
