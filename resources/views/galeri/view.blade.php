@@ -21,16 +21,16 @@
 
 @section('content')
 @if(Auth::check() && Auth::user()->level == 'admin')
-<h2 align="center">Galeri Buku</h2>
+<h2 align="center">Galeri Aset</h2>
 
-<p><a class="btn btn-primary" href="{{ route('galeri.create') }}" style="margin-left: 135px;">Tambah Buku</a></p>
+<p><a class="btn btn-primary" href="{{ route('galeri.create') }}" style="margin-left: 135px;">Tambah Galeri Aset</a></p>
 
 <table class="table table-dark" align="center" style="width: 80%;">
     <thead>
         <tr>
             <th>No.</th>
             <th>Nama Galeri</th>
-            <th>Nama Buku</th>
+            <th>Nama Aset</th>
             <th>Isi Galeri</th>
             <th>Aksi</th>
         </tr>
@@ -58,7 +58,10 @@
         </tr>
         @endforeach
     </tbody>
+    
 </table>
+<div style="margin-left: 135px;">{{ $galeri -> links() }}</div>
+    <div style="margin-left: 135px;"><strong>Jumlah galeri yang ditambahkan : {{ $jumlah_galeri }}</strong></div>
 @endsection
 @endif
 

@@ -9,24 +9,24 @@
 </head> 
 
 <body>
-<b><p class="fs-3" align="center">Aset Anda dalam galeri</p></b>
+<b><p class="fs-3" align="center">List Aset</p></b>
     <div class="container">
         <div class="row">
-            @foreach ($data_buku as $buku)
+            @foreach ($data_aset as $aset)
             <div class="col-md-2">
                 <div align="center" class="card" style="width: 10rem;">
                     <div class="card-body">
-                        <img class="card-img-top" src="{{ asset('thumb/'.$buku->foto) }}" style="width:100px; height:150px">{{ $buku->isi_galeri }}
+                        <img class="card-img-top" src="{{ asset('thumb/'.$aset->foto) }}" style="width:100px; height:150px">{{ $aset->isi_galeri }}
                         <hr>
-                        <a href="{{ route('galeri.buku', $buku->buku_seo)  }}">{{ $buku->judul }} </a>
+                        <a href="{{ route('galeri.aset', $aset->aset_seo)  }}">{{ $aset->nama }} </a>
                         <hr>
-                        <a href="{{ route('likefoto', $buku->id) }}" class="btn btn-primary btn-sm">
+                        <a href="{{ route('likefoto', $aset->id) }}" class="btn btn-primary btn-sm">
                             <i class="fa fa-thumbs-up"></i>like
-                            <span class="badge badge-light"> {{ $buku->like_foto }}</span>
+                            <span class="badge badge-light"> {{ $aset->like_foto }}</span>
                         <br>
                         <a href="#" class="btn btn-info btn-sm">
                             <i class="fa fa-thumbs-up"></i>Komentar
-                            <span class="badge badge-light"> {{ $buku->suka }}</span>
+                            <span class="badge badge-light"> {{ $aset->suka }}</span>
                         </a>
                     </div>  
                 </div>
@@ -37,7 +37,7 @@
         </div>
     </div>
     <div style="float: right;">
-        {{ $data_buku->links() }}
+        {{ $data_aset->links() }}
     </div>
 </body>
 @endsection

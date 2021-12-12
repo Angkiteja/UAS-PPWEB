@@ -4,13 +4,13 @@
 <form action="{{ route('galeri.store') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
-        <label for="nama_galeri">Judul</label>
+        <label for="nama_galeri">Nama Galeri</label>
         <input type="text" class="form-control" name="nama_galeri">
     </div>
     <div class="form-group">
-        <label for="id_buku">Buku</label>
+        <label for="id_buku">Aset</label>
         <select name="id_buku" class="form-control">
-            <option value="" selected>Pilih Buku</option>
+            <option value="" selected>Pilih Aset</option>
             @foreach($buku as $data)
                 <option value="{{ $data->id }}">{{ $data->judul }}</option>    
             @endforeach
@@ -20,10 +20,10 @@
         <label for="keterangan">Keterangan</label>
         <textarea name="keterangan" class="form-control"></textarea>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="buku_seo">Buku SEO</label>
-        <textarea name="buku_seo" class="form-control" value="{{ $data->buku_seo }}"></textarea>
-    </div>
+        <textarea name="buku_seo" class="form-control" value="{{ $data->galeri_seo }}"></textarea>
+    </div> -->
     <div class="form-group">
         <label for="foto">Upload Foto</label>
         <input type="file" class="form-control" name="foto">

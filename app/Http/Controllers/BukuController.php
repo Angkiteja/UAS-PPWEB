@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Buku;  // untuk memanggil model Buku(dot)php yang ada tabel yg digunakan (tabel buku)
 use App\Galeri;
+use Image;
+use File;
 
 
 

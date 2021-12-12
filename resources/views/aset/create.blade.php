@@ -11,38 +11,33 @@
 @endif
 
 @section('title')
-<title>Tambah buku</title>
+<title>Tambah Aset</title>
 @endsection
 
 
 @section('content')
-<form method="post" action="{{ route('buku.store') }}" enctype="multipart/form-data">
+<form method="post" action="{{ route('aset.store') }}" enctype="multipart/form-data">
    @csrf
         <!-- merupakan proteksi dari serangan CSRF (Cross Site Request Forgery) yang mencegah penginputan data ilegal dari luar aplikasi/sistem -->
     <div class = "form-group">
-        <label for="judul">Nama</label>
-        <input type="text" class="form-control" name="judul">
+        <label for="jenis_aset">Jenis Aset</label>
+        <input type="text" class="form-control" name="jenis_aset">
     </div>
 
     <div class = "form-group">
-        <label for="penulis">Jenis Aset</label>
-        <input type="text" class="form-control" name="penulis">
+        <label for="nama">Nama</label>
+        <input type="text" class="form-control" name="nama">
+    </div>
+
+    <div class = "form-group">
+        <label for="tahun_beli">Tahun Beli</label>
+        <input type="date" class="date form-control" name="tahun_beli"
+        placeholder="yyyy/mm/dd" id="tahun_beli">
     </div>
 
     <div class = "form-group">
         <label for="harga">Harga</label>
         <input type="number" class="form-control" name="harga">
-    </div>
-
-    <div class = "form-group">
-        <label for="buku_seo">Aset SEO</label>
-        <input type="text" class="form-control" name="buku_seo">
-    </div>
-
-    <div class = "form-group">
-        <label for="tgl_terbit">Tanggal Pembelian</label>
-        <input type="date" class="date form-control" name="tgl_terbit"
-        placeholder="yyyy/mm/dd" id="tgl_terbit">
     </div>
         
     <div class="form-group">

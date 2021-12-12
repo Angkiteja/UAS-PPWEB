@@ -109,3 +109,26 @@ Route::get('/list_buku', 'BukuController@list_buku')->name('list_buku');
 Route::get('/detail_buku/{title}', 'BukuController@galbuku')->name('galeri.buku');
 
 Route::get('/list_buku/{id}', 'BukuController@likefoto')->name('likefoto');
+
+
+
+
+Route::get('/aset', 'AsetController@index');
+
+Route::get('/aset/create', 'AsetController@create')->name('aset.create'); //buka form
+
+Route::post('/aset', 'AsetController@store')->name('aset.store'); //nyimpan data
+
+Route::post('/aset/delete/{id}', 'AsetController@destroy')->name('aset.destroy'); //hapus data
+
+Route::post('/aset/edit/{id}', 'AsetController@edit')->name('aset.edit');
+
+Route::post('/aset/update/{id}', 'AsetController@update')->name('aset.update');
+
+Route::get('/aset/search', 'AsetController@search') -> name('aset.search');
+
+Route::get('/list_aset', 'AsetController@list_aset')->name('list_aset');
+Route::get('/detail_aset/{title}', 'AsetController@galaset')->name('galeri.aset');
+
+
+Route::get('/list_aset/{id}', 'AsetController@likefoto')->name('likefoto');

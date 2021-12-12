@@ -7,7 +7,7 @@
 @section('content')
 <section id="album" class="py-1 text-center gb-light">
     <div class="container">
-    <h2>Buku: {{$bukus->judul}}</h2>
+    <h2>Aset: {{$bukus->judul}}</h2>
     <hr>
     <div class="row">
         @foreach ($galeris as $data)

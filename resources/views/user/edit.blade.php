@@ -8,6 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
+                    @foreach($data_user as $user)
                     <form method="POST" action="{{ route('user.update', $user->id) }}">
                         @csrf
 
@@ -97,6 +98,7 @@
                             </div>
                         </div>
                     </form>
+                    @endforeach
                 </div>
             </div>
         </div>

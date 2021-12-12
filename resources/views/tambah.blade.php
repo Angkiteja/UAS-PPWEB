@@ -13,18 +13,20 @@
                 </tr>
                 <tr>
                     <td>Nama mahasiswa</td>
-                    <td><input type ="text" name="nim" class="form-control" placeholder="....."></td>
+                    <td><input type ="text" name="nama" class="form-control" placeholder="....."></td>
                 </tr>
                 <tr>
                     <td>Jurusan</td>
-                    <td><input type ="text" name="nim" class="form-control" placeholder="....."></td>
+                    <td><input type ="text" name="jurusan" class="form-control" placeholder="....."></td>
                 </tr>
-                <!-- </br>
+                <!-- 
+                    </br>
                 <label>Nama mahasiswa</label>
                 <input type ="text" name="nama" class="form-control" placeholder=".....">
                 </br>
                 <label>Jurusan</label>
-                <input type ="text" name="jurusan" class="form-control" placeholder="....."> -->
+                <input type ="text" name="jurusan" class="form-control" placeholder="....."> 
+                -->
                 <br>
                 <br>
                 </table>

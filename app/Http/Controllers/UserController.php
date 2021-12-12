@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB; 
-
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -21,7 +21,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $batas = 1;
+        $batas = 4;
         $jumlah_user = User::count();
         $data_user = User::orderBy('name')->paginate($batas);
         $no = $batas * ($data_user->currentPage() - 1);
@@ -95,22 +95,22 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        DB::table('users')->where('id',$request->id)->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request['password']),
-            'level' => $request->level          
-            ]);
-            return redirect('/user') -> with('pesan', 'Data user Berhasil di Update');
+        // DB::table('users')->where('id',$request->id)->update([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'password' => Hash::make($request['password']),
+        //     'level' => $request->level          
+        //     ]);
+        //     return redirect('/user') -> with('pesan', 'Data user Berhasil di Update');
 
 
-        // $user = User::find($id);
-        // $user->name = $request->name;
-        // $user->email = $request->email;
-        // $user->password = $request->password;
-        // $user->level = $request->level;
-        // $user->update();
-        // return redirect('/user')->with('pesanSimpan','Data User Berhasil di Update');
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request['password']);
+        $user->level = $request->level;
+        $user->update();
+        return redirect('/user')->with('pesanSimpan','Data User Berhasil di Update');
     }
 
     /**
@@ -123,7 +123,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        return redirect('/user')->with('pesanHapus','Data User Berhasil di Hapus');;
+        return redirect('/user')->with('pesanHapus','Data User Berhasil di Hapus');
 
     }
 }

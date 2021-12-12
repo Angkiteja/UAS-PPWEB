@@ -25,7 +25,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}" >
+                <a class="navbar-brand" href="{{ url('/user') }}" >
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 @if(Auth::check() && Auth::user()->level == 'admin')
@@ -33,7 +33,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="/user"></a></li>
 
-                <li class="nav-item active" style="list-style:none;">
+                <!-- <li class="nav-item active" style="list-style:none;">
                     <a class="nav-link" href="/">My Name <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item" style="list-style:none;">
@@ -44,19 +44,19 @@
                 </li>
                 <li class="nav-item" style="list-style:none;">
                     <a class="nav-link" href="/university">College</a>
-                </li>
+                </li> -->
                 <li class="nav-item" style="list-style: none;">
                     <a class="nav-link" href="/mahasiswa">List Mahasiswa</a>
                 </li>
                 <li class="nav-item" style="list-style:none;">
-                    <a class="nav-link" href="/buku">List Buku</a>
+                    <a class="nav-link" href="/buku">List Aset</a>
                 </li>
                 <li class="nav-item" style="list-style:none;">
                     <a class="nav-link" href="/user">List User</a>
                 </li>
 
                 <li class="nav-item" style="list-style:none;">
-                    <a class="nav-link" href="/galeri">Galeri Buku</a>
+                    <a class="nav-link" href="/galeri">Galeri Aset</a>
                 </li>
                 @endif
 

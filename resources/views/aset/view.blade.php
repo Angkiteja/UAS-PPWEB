@@ -22,18 +22,17 @@
 
 @section('content')
 @if(Auth::check() && Auth::user()->level == 'admin')
-<h2 align="center">Daftar Aset Anda</h2>
-<p><a class="btn btn-primary" href="{{ route('buku.create') }}" style="margin-left: 135px;">Tambah Aset</a></p>
-<p><a class="btn btn-primary" href="{{ route('list_buku') }}" style="margin-left: 135px;">Lihat Aset dalam Galeri</a></p>
-
+<h2 align="center">Daftar Kekayaan</h2>
+<p><a class="btn btn-primary" href="{{ route('aset.create') }}" style="margin-left: 135px;">Tambah Aset</a></p>
+<p><a class="btn btn-primary" href="{{ route('list_aset') }}" style="margin-left: 135px;">List Aset</a></p>
 <table class="table table-dark" align="center" style="width: 80%;">
     <thead>
-        <tr>
+        <tr align="center">
             <th>No.</th>
-            <th>Nama</th>
             <th>Jenis Aset</th>
+            <th >Nama</th>
+            <th>Tahun Beli</th>
             <th>Harga</th>
-            <th>Tanggal Beli</th>
             <th>Foto</th>
             <th>Aksi</th>
         </tr>
@@ -41,40 +40,35 @@
 
     <tbody>
     <!-- pertemuan 8 -->
-    <form action="" method="post">
-    @csrf
+    <form action="{{ route('aset.search') }}" method="get">@csrf
                 <input type="text" name="kata" class="form-control" placeholder="cari..." style="width: 20%; 
                 display:inline; margin-top: 10px; margin-bottom: 10px; margin-right:135px; float:right;">
-                <button class="btn btn-success" type="submit">cari</button>
-               
-    </form>
-        @foreach($data_buku as $buku)
+                </form>
+        @foreach($data_aset as $aset)
         
-        <tr>
-            <!-- <td>{{ $buku->id }}</td> mengurutkan berdasar id, yg terbaru ada diatas -->
+        <tr align="center">
+            <!-- <td>{{ $aset->id }}</td> mengurutkan berdasar id, yg terbaru ada diatas -->
             
             <td>{{ ++$no }}</td> <!-- mengurutkan berdasar nomor, yg terbaru ada di no 1 -->
-            <td>{{ $buku->judul }}</td>
-            <td>{{ $buku->penulis }}</td>
+            <td>{{ $aset->jenis_aset }}</td>
+            <td>{{ $aset->nama }}</td>
 
-            <!-- <td>{{ "Rp ".number_format($buku->harga, 2, ',','.') }}</td>
-            <td>{{ Carbon\Carbon::parse($buku->tgl_terbit)->format('d/m/Y') }}</td> -->
-
-            <!-- pertemuan 8 -->
-            <td>{{ "Rp ".number_format($buku->harga, 0, ',','.') }}</td> 
+            <!-- <td>{{ "Rp ".number_format($aset->harga, 2, ',','.') }}</td>
+            <td>{{ Carbon\Carbon::parse($aset->tgl_terbit)->format('d/m/Y') }}</td> -->
+            <td>{{ $aset->tahun_beli->format('d/m/Y') }}</td>
+            <td>{{ "Rp ".number_format($aset->harga, 0, ',','.') }}</td> 
             <!--0 adalah banyak angka dibelakang koma -->
-            <td>{{ $buku->tgl_terbit->format('d/m/Y') }}</td>
             <td>
-                <img class="card-img-top" src="{{ asset('thumb/'.$buku->foto) }}" style="width:200px; height:200px">{{ $buku->isi_galeri }}
+                <img class="card-img-top" src="{{ asset('thumb/'.$aset->foto) }}" style="width:150px; height:150px">{{ $aset->isi_galeri }}
             </td>
 
             <td>
-                <form action="{{ route('buku.destroy', $buku->id) }}" method="post">
+                <form action="{{ route('aset.destroy', $aset->id) }}" method="post">
                     <!-- hapus berdasar id -->
                     @csrf
                     <button onClick="return confirm('Yakin mau dihapus?')" class="btn btn-danger">Hapus</button>
                 </form>
-                <form method="post" action="{{ route('buku.edit', $buku->id) }}">
+                <form method="post" action="{{ route('aset.edit', $aset->id) }}">
                     @csrf
                     <button onClick="return confirm('Yakin mau edit?')" class="btn btn-warning">Edit</button>
                 </form>
@@ -86,7 +80,7 @@
         @endforeach
         <tr>
             <td colspan="6">Banyak Aset</td>
-            <td>: {{ $jumlah_buku }}</td>
+            <td>: {{ $jumlah_aset }}</td>
         </tr>
         <tr>
             <td colspan="6">Total harga</td>
@@ -95,8 +89,8 @@
 
     </tbody>
 </table>
-    <div>{{ $data_buku -> links() }}</div>
-    <div><strong>Jumlah Aset Terdaftar : {{ $jumlah_buku }}</strong></div>
+    <div>{{ $data_aset -> links() }}</div>
+    <div><strong>Jumlah Aset : {{ $jumlah_aset }}</strong></div>
 @endsection
 @endif
 </html>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Galeri;
 use App\Buku;
 use Image;
+use App\Aset;
 use File;
 
 class GaleriController extends Controller
@@ -25,11 +26,15 @@ class GaleriController extends Controller
     public function index()
     {
         $galeri = Buku::all()->sortByDesc('id');
+        $galeri = Aset::all()->sortByDesc('id');
+        $total = Buku::all()->sum('harga');
         $batas = 4;
         $galeri = Galeri::paginate($batas);
+        $no = 0;
 
+        $jumlah_galeri = Galeri::count();
         $no = $batas * ($galeri -> currentpage() - 1);
-        return view('galeri.view', compact('galeri', 'no'));
+        return view('galeri.view', compact('galeri', 'no', 'jumlah_galeri', 'total'));
     }
 
     /**

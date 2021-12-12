@@ -16,12 +16,12 @@
     </div>
     
     <div class="form-group">
-        <label for="id_buku">Buku</label>
+        <!-- <label for="id_buku">Buku</label>
         <select name="id_buku" class="form-control">
         
             <option value="" selected>Pilih Buku</option>
                 <option value="{{ $data->id }}">{{ $data->judul }}</option>    
-        </select>
+        </select> -->
     </div>
 
     <div class="form-group">
