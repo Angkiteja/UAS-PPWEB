@@ -64,9 +64,9 @@
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Level') }}</label>
                             <div class="col-md-4 col-form-label">
-                                <input type="radio" id="admin" name="level" value="Admin">
+                                <input type="radio" id="admin" name="level" value="admin">
                                 <label for="open">Admin</label><br>
-                                <input type="radio" id="user" name="level" value="User">
+                                <input type="radio" id="user" name="level" value="user">
                                 <label for="approve">User</label>
                             </div>
                         </div>
